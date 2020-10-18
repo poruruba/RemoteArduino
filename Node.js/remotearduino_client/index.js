@@ -1,7 +1,7 @@
 'use strict';
 
-const MQTT_HOST_URL = process.env.MQTT_HOST || 'yMQTTƒuƒ[ƒJ‚ÌURLz';
-const MQTT_CLIENT_ID = process.argv.MQTT_CLIENT_ID || 'yMQTT‚Å‚ÌƒNƒ‰ƒCƒAƒ“ƒgIDz';
+const MQTT_HOST_URL = process.env.MQTT_HOST || 'ã€MQTTãƒ–ãƒ­ãƒ¼ã‚«ã®URLã€‘';
+const MQTT_CLIENT_ID = process.argv.MQTT_CLIENT_ID || 'ã€MQTTã§ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆIDã€‘';
 
 const Arduino = require('./arduino');
 const SGC30 = require('./device/SGC30');
@@ -10,8 +10,8 @@ const TSL2561 = require('./device/TSL2561');
 const BME280 = require('./device/BME280');
 const SSD1308 = require('./device/SSD1308');
 
-const MQTT_TOPIC_CMD = process.env.MQTT_TOPIC_CMD || 'm5lite/cmdyM5StickC‚ÌMacƒAƒhƒŒƒXz';
-const MQTT_TOPIC_RSP = process.env.MQTT_TOPIC_RSP || 'm5lite/rspyM5StickC‚ÌMacƒAƒhƒŒƒXz';
+const MQTT_TOPIC_CMD = process.env.MQTT_TOPIC_CMD || 'm5lite/cmdã€M5StickCã®Macã‚¢ãƒ‰ãƒ¬ã‚¹ã€‘';
+const MQTT_TOPIC_RSP = process.env.MQTT_TOPIC_RSP || 'm5lite/rspã€M5StickCã®Macã‚¢ãƒ‰ãƒ¬ã‚¹ã€‘';
 
 const arduino = new Arduino(MQTT_CLIENT_ID, MQTT_HOST_URL, MQTT_TOPIC_CMD, MQTT_TOPIC_RSP);
 
@@ -59,4 +59,5 @@ test()
 })
 .catch(error =>{
   console.error(error);
+  arduino.disconnect();
 });
